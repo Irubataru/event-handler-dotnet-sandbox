@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHandler", "EventHandler\EventHandler.csproj", "{42903487-D4EC-4A53-A3EC-D3951619F298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingSimulation", "DrivingSimulation\DrivingSimulation.csproj", "{99EB88BC-FAF7-4F57-972E-99BEFB0423CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHandlerTests", "EventHandlerTests\EventHandlerTests.csproj", "{3DAF822F-FB36-41BC-AB2B-4B5825B7FC19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42903487-D4EC-4A53-A3EC-D3951619F298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42903487-D4EC-4A53-A3EC-D3951619F298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42903487-D4EC-4A53-A3EC-D3951619F298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42903487-D4EC-4A53-A3EC-D3951619F298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99EB88BC-FAF7-4F57-972E-99BEFB0423CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99EB88BC-FAF7-4F57-972E-99BEFB0423CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99EB88BC-FAF7-4F57-972E-99BEFB0423CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99EB88BC-FAF7-4F57-972E-99BEFB0423CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAF822F-FB36-41BC-AB2B-4B5825B7FC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAF822F-FB36-41BC-AB2B-4B5825B7FC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAF822F-FB36-41BC-AB2B-4B5825B7FC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAF822F-FB36-41BC-AB2B-4B5825B7FC19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
