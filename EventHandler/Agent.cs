@@ -1,5 +1,5 @@
 ﻿namespace EventHandler;
 
-public abstract class Agent
+public abstract class Agent : IEventHandler
 {
 }

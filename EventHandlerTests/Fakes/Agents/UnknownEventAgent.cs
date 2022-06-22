@@ -1,8 +1,8 @@
 ﻿using EventHandler;
 
-namespace EventHandlerTests.Fakes;
+namespace EventHandlerTests.Fakes.Agents;
 
-public class GenericEventAgent : FakeAgent, IEventHandler
+public class UntypedEventAgent : FakeAgent, IUntypedEventHandler
 {
     public void HandleEvent(Event theEvent)
     {

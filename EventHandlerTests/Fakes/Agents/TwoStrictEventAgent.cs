@@ -1,8 +1,9 @@
 ﻿using EventHandler;
+using EventHandlerTests.Fakes.Events;
 
-namespace EventHandlerTests.Fakes;
+namespace EventHandlerTests.Fakes.Agents;
 
-public class TwoSpecificEventAgent : FakeAgent, IEventHandler<FakeEvent1>, IEventHandler<FakeEvent2>
+public class TwoStrictEventAgent : FakeAgent, IStrictEventHandler<FakeEvent1>, IStrictEventHandler<FakeEvent2>
 {
     public void HandleEvent(FakeEvent1 theEvent)
     {

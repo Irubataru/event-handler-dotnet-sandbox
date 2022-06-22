@@ -1,30 +1,32 @@
 namespace EventHandler;
 
-internal abstract class EventHandlerWrapper
+internal abstract class EventHandlerWrapper : IUntypedEventHandler
 {
-    public abstract void AddHandler(object handler);
+    public abstract bool AddHandler(IEventHandler handler);
     
-    public abstract bool HasHandler(object handler);
+    public abstract bool HasHandler(IEventHandler handler);
 
     public abstract void HandleEvent(Event theEvent);
 }
 
-internal class SpecificEventHandlerWrapper<TEvent> : EventHandlerWrapper where TEvent : Event
+internal class EventHandlerWrapper<TEvent> : EventHandlerWrapper where TEvent : Event
 {
-    private List<IEventHandler<TEvent>> _handlers = new();
-    
+    private readonly List<IStrictEventHandler<TEvent>> _handlers = new();
 
-    public override void AddHandler(object handler)
+    public override bool AddHandler(IEventHandler handler)
     {
-        if (handler is not IEventHandler<TEvent> specificHandler)
-            throw new ArgumentException($"The {nameof(handler)} does not implement {typeof(IEventHandler<TEvent>)}");
+        if (handler is not IStrictEventHandler<TEvent> specificHandler)
+            throw new ArgumentException($"The {nameof(handler)} does not implement {typeof(IStrictEventHandler<TEvent>)}");
+
+        if (_handlers.Contains(handler)) return false;
         
         _handlers.Add(specificHandler);
+        return true;
     }
 
-    public override bool HasHandler(object handler)
+    public override bool HasHandler(IEventHandler handler)
     {
-        return handler is IEventHandler<TEvent> specificHandler && _handlers.Contains(specificHandler);
+        return handler is IStrictEventHandler<TEvent> specificHandler && _handlers.Contains(specificHandler);
     }
 
     public override void HandleEvent(Event theEvent)
@@ -39,21 +41,24 @@ internal class SpecificEventHandlerWrapper<TEvent> : EventHandlerWrapper where T
     }
 }
 
-internal class GenericEventHandlerWrapper : EventHandlerWrapper
+internal class UntypedEventHandlerWrapper : EventHandlerWrapper
 {
-    private List<IEventHandler> _handlers = new();
+    private readonly List<IUntypedEventHandler> _handlers = new();
 
-    public override void AddHandler(object handler)
+    public override bool AddHandler(IEventHandler handler)
     {
-        if (handler is not IEventHandler specificHandler)
-            throw new ArgumentException($"The {nameof(handler)} does not implement {typeof(IEventHandler)}");
+        if (handler is not IUntypedEventHandler specificHandler)
+            throw new ArgumentException($"The {nameof(handler)} does not implement {typeof(IUntypedEventHandler)}");
+        
+        if (_handlers.Contains(handler)) return false;
         
         _handlers.Add(specificHandler);
+        return true;
     }
 
-    public override bool HasHandler(object handler)
+    public override bool HasHandler(IEventHandler handler)
     {
-        return handler is IEventHandler specificHandler && _handlers.Contains(specificHandler);
+        return handler is IUntypedEventHandler specificHandler && _handlers.Contains(specificHandler);
     }
 
     public override void HandleEvent(Event theEvent)

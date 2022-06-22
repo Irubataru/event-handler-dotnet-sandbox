@@ -1,6 +1,6 @@
 ﻿using EventHandler;
 
-namespace EventHandlerTests.Fakes;
+namespace EventHandlerTests.Fakes.Events;
 
 public class FakeEvent2 : Event
 {

@@ -1,6 +1,6 @@
 ﻿using EventHandler;
 
-namespace EventHandlerTests.Fakes;
+namespace EventHandlerTests.Fakes.Agents;
 
 public class FakeAgent : Agent
 {
